@@ -9,3 +9,6 @@ scaler =StandardScaler().fit(X)
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 50, train_size = 0.3)
 from sklearn.tree import DecisionTreeClassifier
+df=DecisionTreeClassifier(n_neighbors=3)
+df.fit(X_train,y_train)
+pred=df.predict(X_test)
