@@ -12,3 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 df=DecisionTreeClassifier(n_neighbors=3)
 df.fit(X_train,y_train)
 pred=df.predict(X_test)
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+print(accuracy_score(y_test,pred))
+print(confusion_matrix(y_test,pred))
+print(classification_report(y_test,pred))
