@@ -1,0 +1,4 @@
+import matplotlib.pyplot as plt
+data_dict=[5,15,25,35,45,55]
+plt.hist(data_dict,bins=[0,10,20,30,40,50,60],weights=[20,10,15,45,55,35])
+plt.show()
