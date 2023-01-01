@@ -1,0 +1,21 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.datasets import load_iris
+mydata=load_iris()
+
+x=mydata.data
+print(x)
+from sklearn.cluster import KMeans
+km=KMeans(n_clusters=4)
+km.fit(x)
+pred=km.predict(x)
+pred
+
+plt.scatter(x[pred==0,0],x[pred==0,1],c='blue',label='cluster 1')
+plt.scatter(x[pred==1,0],x[pred==1,1],c='red',label='cluster 2')
+plt.scatter(x[pred==2,0],x[pred==2,1],c='green',label='cluster 3')
+plt.scatter(x[pred==3,0],x[pred==3,1],c='yellow',label='cluster 4')
+plt.legend()
+plt.show()
