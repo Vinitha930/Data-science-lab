@@ -1,0 +1,19 @@
+import numpy as np
+import pandas as pd
+from sklearn import datasets
+from sklearn.datasets import load_iris
+iris=load_iris()
+
+x=iris.data
+y=iris.target
+
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler().fit(x)
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3,random_state=50)
+
+from sklearn import tree 
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(50,30))
+_=tree.plot_tree(df,feature_names=iris.feature_names,class_names=iris.target_names,filled=True)
