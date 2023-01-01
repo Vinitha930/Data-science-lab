@@ -1,0 +1,11 @@
+import pandas as pd
+data_dict1={'customer_id':[1,2,3,4,5],'gender':["male","female","male","female","male"],'age':[10,20,30,40,50]}
+data1=pd.DataFrame(data_dict1)
+data1.to_csv("customer1.csv")
+print(data1)
+data_dict2={'customer_id':[6,7,8,9,10],'gender':["female","male","female","male","female"],'age':[60,70,80,90,100]}
+data2=pd.DataFrame(data_dict2)
+data2.to_csv("customer2.csv")
+print(data2)
+df=pd.concat(map(pd.read_csv,['customer1.csv','customer2.csv']),ignore_index=True)
+print(df)
