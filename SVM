@@ -1,0 +1,24 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.datasets._samples_generator import make_blobs
+from sklearn.metrics import confusion_matrix
+from sklearn.svm import SVC
+
+x,y=make_blobs(n_samples=125,centers=2,cluster_std=0.60,random_state=0)
+x_train,x_test,y_train,y_test= train_test_split(x,y,test_size=0.3,random_state=0)
+
+plt.scatter(x_train[:,0],x_train[:,1],c=y_train,cmap='winter')
+svc=SVC(kernel='linear')
+svc.fit(x_train,y_train)
+plt.scatter(x_train[:,0],x_train[:,1],c=y_train,cmap='winter')
+
+ax=plt.gca()
+xlim=ax.get_xlim()
+w=svc.coef_[0]
+a=w[0]/w[1]
+xx=np.linspace(xlim[0],xlim[1])
+yy=a*xx-(svc.intercept_[0]/w[1])
+plt.plot(xx,yy)
+plt.show()
