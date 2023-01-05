@@ -1,0 +1,19 @@
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+iris=load_iris()
+x=iris.data
+y=iris.target
+iris.target_names
+
+from sklearn.cluster import KMeans
+Km=KMeans(n_clusters=3)
+pred=Km.fit_predict(x)
+pred
+
+import matplotlib.pyplot as plt
+plt.scatter(x[pred==0,0],x[pred==0,1],c='red' ,label='setosa')
+plt.scatter(x[pred==1,0],x[pred==1,1],c='green' ,label='versicolor')
+plt.scatter(x[pred==2,0],x[pred==2,1],c='blue' ,label='virginica')
+plt.scatter(Km.cluster_centers_[:,0],Km.cluster_centers_[:,1], c='yellow' , label='Centroids') #plot the Centroids
+plt.show()
